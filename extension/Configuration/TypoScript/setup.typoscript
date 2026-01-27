@@ -1,22 +1,8 @@
-page = PAGE
+@import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
+
 page {
-    10 = FLUIDTEMPLATE
     10 {
-        templateRootPaths.0 = EXT:babiel_core/Resources/Private/Templates/
-        layoutRootPaths.0 = EXT:babiel_core/Resources/Private/Layouts/
-
-        dataProcessing {
-            10 = menu
-            10.as = navigation
-
-            20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-            20.table = tt_content
-            20.pidInList.field = uid
-            20.as = contentElements
-        }
+        templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
+        layoutRootPaths.10 = EXT:babiel_core/Resources/Private/Layouts/
     }
-
-    # Vue Binding
-    includeJSFooter.vueApp = EXT:babiel_core/Resources/Public/Frontend/dist/app.js
-    includeCSSLibs.vueApp = EXT:babiel_core/Resources/Public/Frontend/dist/app.css
 }
