@@ -1,17 +1,8 @@
 # Headless Base Import
 @import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
 
-# Deine Template Pfade
-page.10 {
-    templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
-    layoutRootPaths.10 = EXT:babiel_core/Resources/Private/Layouts/
-}
-
-# KRITISCH: Content Elements zur Page hinzufügen
+# Content Elements zur Page hinzufügen
 page.10.dataProcessing {
-    # Navigation ist bereits da (kommt von Headless)
-
-    # Content Elements für colPos 0 hinzufügen
     1554672434 = FriendsOfTYPO3\Headless\DataProcessing\ContentProcessor
     1554672434 {
         colPos = 0
@@ -19,17 +10,58 @@ page.10.dataProcessing {
     }
 }
 
-# Hero Banner Serializer
-lib.contentElement.settings.content.herobanner {
-    fields {
-        header = TEXT
-        header.field = header
+# Hero Banner Content Element Definition
+lib.contentElement {
+    templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
 
-        subheader = TEXT
-        subheader.field = subheader
+    settings {
+        content {
+            herobanner {
+                fields {
+                    header = TEXT
+                    header.field = header
 
-        bodytext = TEXT
-        bodytext.field = bodytext
-        bodytext.parseFunc =< lib.parseFunc_RTE
+                    subheader = TEXT
+                    subheader.field = subheader
+
+                    bodytext = TEXT
+                    bodytext.field = bodytext
+                    bodytext.parseFunc =< lib.parseFunc_RTE
+
+                    media = FILES
+                    media {
+                        references {
+                            table = tt_content
+                            fieldName = image
+                        }
+                        renderObj = COA
+                        renderObj {
+                            10 = FILES
+                            10 {
+                                references {
+                                    data = current
+                                }
+                                renderObj = TEXT
+                                renderObj {
+                                    typolink {
+                                        parameter.stdWrap.field = uid
+                                        returnLast = url
+                                    }
+                                    stdWrap.wrap = {"publicUrl":"|","properties":{"alternative":"
+                                }
+                            }
+                            20 = TEXT
+                            20.data = file:current:alternative
+                            20.stdWrap.wrap = |","title":"
+
+                            30 = TEXT
+                            30.data = file:current:title
+                            30.stdWrap.wrap = |"}}
+                        }
+                        stdWrap.wrap = [|]
+                    }
+                }
+            }
+        }
     }
 }
