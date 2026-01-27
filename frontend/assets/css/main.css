@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-light: #33A87D;
+  --color-primary: #00925D;
+  --color-primary-darker: #006641;
+
+  --color-alert: #EB3F5E;
+  --color-success: #4CAF50;
+
+  --color-gray: #9CA4AB;
+
+  --color-black-700: #28262D;
+  --color-black-800: #0D0C0F;
+  --color-black-900: #08080A;
+  --color-black: #000000;
+
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+
+  --color-progressbar-light: #717171;
+  --color-progressbar-dark: #4D4D4D;
+
+  /* Breakpoints */
+  --breakpoint-3xl: 112rem;
+  --breakpoint-4xl: 128rem;
+
+  /* Max Width */
+  --max-width-loki: 120rem;
+
+  /* Font Sizes */
+  --font-size-4xs: 0.375rem;
+  --font-size-3xs: 0.5rem;
+  --font-size-2xs: 0.625rem;
+
+  /* Font Families */
+  --font-loki-main: "Inter", sans-serif;
+  --font-loki-sub: "Rubik", sans-serif;
+
+  /* Border Width */
+  --border-width-1: 1px;
+
+  /* Z-Index */
+  --z-index-videoplayer: 5000;
+  --z-index-popup: 9999;
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .hit-area-sm,
+  .hit-area-md,
+  .hit-area-lg {
+    position: relative;
+  }
+
+  .hit-area-sm::after {
+    content: '';
+    position: absolute;
+    inset: -0.35rem;
+  }
+
+  .hit-area-md::after {
+    content: '';
+    position: absolute;
+    inset: -0.55rem;
+  }
+
+  .hit-area-lg::after {
+    content: '';
+    position: absolute;
+    inset: -0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
