@@ -23,7 +23,7 @@ $GLOBALS['TCA']['tt_content']['types']['herobanner'] = [
             subheader;Unterüberschrift,
             bodytext;Beschreibung,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media,
-            assets;Hintergrundbild,
+            image;Hintergrundbild,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
             --palette--;;frames,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -37,9 +37,9 @@ $GLOBALS['TCA']['tt_content']['types']['herobanner'] = [
                 'richtextConfiguration' => 'default',
             ]
         ],
-        'assets' => [
+        'image' => [
             'config' => [
-                'maxitems' => 1, // Nur ein Bild
+                'maxitems' => 1,
             ]
         ]
     ]

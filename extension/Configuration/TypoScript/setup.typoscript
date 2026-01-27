@@ -1,8 +1,35 @@
+# Headless Base Import
 @import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
 
-page {
-    10 {
-        templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
-        layoutRootPaths.10 = EXT:babiel_core/Resources/Private/Layouts/
+# Deine Template Pfade
+page.10 {
+    templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
+    layoutRootPaths.10 = EXT:babiel_core/Resources/Private/Layouts/
+}
+
+# KRITISCH: Content Elements zur Page hinzufügen
+page.10.dataProcessing {
+    # Navigation ist bereits da (kommt von Headless)
+
+    # Content Elements für colPos 0 hinzufügen
+    1554672434 = FriendsOfTYPO3\Headless\DataProcessing\ContentProcessor
+    1554672434 {
+        colPos = 0
+        as = content
+    }
+}
+
+# Hero Banner Serializer
+lib.contentElement.settings.content.herobanner {
+    fields {
+        header = TEXT
+        header.field = header
+
+        subheader = TEXT
+        subheader.field = subheader
+
+        bodytext = TEXT
+        bodytext.field = bodytext
+        bodytext.parseFunc =< lib.parseFunc_RTE
     }
 }

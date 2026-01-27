@@ -1,0 +1,12 @@
+tt_content.herobanner =< lib.contentElement
+tt_content.herobanner {
+    templateName = HeroBanner
+
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+            as = media
+        }
+    }
+}
