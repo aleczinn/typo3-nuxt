@@ -1,5 +1,4 @@
 .idea
-.DS_Store
 
 # Frontend
 frontend/node_modules
@@ -8,3 +7,7 @@ frontend/.env
 frontend/dist
 
 # Extension
+
+# OS
+.DS_Store
+Thumbs.db

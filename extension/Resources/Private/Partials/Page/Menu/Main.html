@@ -1,0 +1,20 @@
+<nav>
+    <f:if condition="{menu -> f:count()}">
+        <ul>
+            <f:for each="{menu}" as="item">
+                <li>
+                    <a href="{item.link}" target="{item.target}">{item.title}</a>
+                    <f:if condition="{item.children -> f:count()}">
+                        <ul class="nav-submenu">
+                            <f:for each="{item.children}" as="child">
+                                <li>
+                                    <a href="{child.link}" target="{child.target}">{child.title}</a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+</nav>
