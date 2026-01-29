@@ -1,28 +1,5 @@
 # Headless Base Import
 @import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
 
-lib.contentElement {
-  templateRootPaths.200 = EXT:babiel-core/Resources/Private/Templates/ContentElements/
-}
-
-tt_content {
-  image_with_text =< lib.contentElement
-  image_with_text {
-    templateName = Generic
-  }
-}
-
-# Headless JSON Serialisierung
-lib.contentElement.settings.content {
-    image_with_text {
-        fields {
-            header = TEXT
-            header.field = header
-
-            bodytext = TEXT
-            bodytext.field = bodytext
-            bodytext.parseFunc =< lib.parseFunc_RTE
-        }
-    }
-}
-
+# Custom Elements
+@import 'EXT:babiel_core/Configuration/TypoScript/custom-elements.typoscript'
