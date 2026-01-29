@@ -4,7 +4,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
-$keyImageWithDescription = 'image_with_text';
+$keyImageWithText = 'image_with_text';
 
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addTcaSelectItem(
@@ -12,7 +12,7 @@ ExtensionManagementUtility::addTcaSelectItem(
     'CType',
     [
         'label' => 'Image with Text',
-        'value' => $keyImageWithDescription,
+        'value' => $keyImageWithText,
         'icon' => 'content-text',
         'group' => 'special',
         'description' => 'Bild mit Text'
@@ -22,7 +22,7 @@ ExtensionManagementUtility::addTcaSelectItem(
 );
 
 // Configure the default backend fields for the content element
-$GLOBALS['TCA']['tt_content']['types'][$keyImageWithDescription] = [
+$GLOBALS['TCA']['tt_content']['types'][$keyImageWithText] = [
     'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                --palette--;;general,
