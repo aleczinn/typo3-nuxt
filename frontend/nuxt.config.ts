@@ -2,9 +2,13 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+    compatibilityDate: '2026-01-29',
+
     devtools: { enabled: true },
     ssr: true,
+
     modules: ['@t3headless/nuxt-typo3'],
+
     typo3: {
         api: {
             baseUrl: 'http://192.168.178.15:5123'
@@ -15,11 +19,7 @@ export default defineNuxtConfig({
         public: {
             siteUrl: 'http://localhost:3000',
             siteName: 'Babiel',
-            typo3: {
-                api: {
-                    baseUrl: 'http://192.168.178.15:5123'
-                }
-            }
+            typo3BaseUrl: 'http://192.168.178.15:5123'
         }
     },
 

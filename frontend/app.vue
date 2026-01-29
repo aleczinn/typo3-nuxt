@@ -24,7 +24,7 @@ const ogImage = computed(() => {
     }
 
     if (image.startsWith('/')) {
-        return `${config.public.typo3.api.baseUrl}${image}`
+        return `${config.public.typo3BaseUrl}${image}`  // ← HIER ÄNDERN!
     }
     return image
 })
