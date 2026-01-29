@@ -13,7 +13,7 @@ abstract class AbstractContentElement {
     abstract public static function getShowItem(): string;
     abstract public static function getColumnsOverrides(): array;
 
-    public abstract function register(): void {
+    public static function register(): void {
         $ctype = static::getCtype();
 
         ExtensionManagementUtility::addTcaSelectItem(
