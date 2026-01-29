@@ -4,7 +4,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
-$keyImageWithDescription = 'babiel-core_image_with_text';
+$keyImageWithDescription = 'image_with_text';
 
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addTcaSelectItem(
@@ -14,7 +14,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'Image with Text',
         'value' => $keyImageWithDescription,
         'icon' => 'content-text',
-        'group' => 'default',
+        'group' => 'special',
         'description' => 'Bild mit Text'
     ],
     'textmedia',
