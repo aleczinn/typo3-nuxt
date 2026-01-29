@@ -1,6 +1,6 @@
 <template>
-    <button>
-        Button
+    <button class="cursor-pointer">
+        <slot />
     </button>
 </template>
 
