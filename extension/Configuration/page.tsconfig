@@ -1,6 +1,6 @@
 mod.wizards.newContentElement.wizardItems {
-  // add the content element to the tab "common"
-  common {
+  // add the content element to the tab "special"
+  special {
     elements {
       image_with_text {
         iconIdentifier = content-text
