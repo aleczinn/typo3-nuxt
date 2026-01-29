@@ -1,0 +1,16 @@
+mod.wizards.newContentElement.wizardItems {
+  // add the content element to the tab "common"
+  common {
+    elements {
+      babiel-core_image_with_text {
+        iconIdentifier = content-text
+        title = Image with Text
+        description = Bild mit Text
+        tt_content_defValues {
+          CType = babiel-core_image_with_text
+        }
+      }
+    }
+    show := addToList(babiel-core_image_with_text)
+  }
+}

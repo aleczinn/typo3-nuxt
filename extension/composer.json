@@ -1,0 +1,25 @@
+{
+    "name": "babiel/babiel-core",
+    "type": "typo3-cms-extension",
+    "description": "Babiel Core - Custom content elements and templates",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Alec Zinn",
+            "email": "a.zinn@babiel.com"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Babiel\\BabielCore\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "babiel_core"
+        }
+    }
+}

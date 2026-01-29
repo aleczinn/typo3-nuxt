@@ -1,67 +1,13 @@
 # Headless Base Import
 @import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
 
-# Content Elements zur Page hinzufügen
-page.10.dataProcessing {
-    1554672434 = FriendsOfTYPO3\Headless\DataProcessing\ContentProcessor
-    1554672434 {
-        colPos = 0
-        as = content
-    }
+lib.contentElement {
+  templateRootPaths.200 = EXT:my_extension/Resources/Private/Templates/ContentElements/
 }
 
-# Hero Banner Content Element Definition
-lib.contentElement {
-    templateRootPaths.10 = EXT:babiel_core/Resources/Private/Templates/
-
-    settings {
-        content {
-            herobanner {
-                fields {
-                    header = TEXT
-                    header.field = header
-
-                    subheader = TEXT
-                    subheader.field = subheader
-
-                    bodytext = TEXT
-                    bodytext.field = bodytext
-                    bodytext.parseFunc =< lib.parseFunc_RTE
-
-                    media = FILES
-                    media {
-                        references {
-                            table = tt_content
-                            fieldName = image
-                        }
-                        renderObj = COA
-                        renderObj {
-                            10 = FILES
-                            10 {
-                                references {
-                                    data = current
-                                }
-                                renderObj = TEXT
-                                renderObj {
-                                    typolink {
-                                        parameter.stdWrap.field = uid
-                                        returnLast = url
-                                    }
-                                    stdWrap.wrap = {"publicUrl":"|","properties":{"alternative":"
-                                }
-                            }
-                            20 = TEXT
-                            20.data = file:current:alternative
-                            20.stdWrap.wrap = |","title":"
-
-                            30 = TEXT
-                            30.data = file:current:title
-                            30.stdWrap.wrap = |"}}
-                        }
-                        stdWrap.wrap = [|]
-                    }
-                }
-            }
-        }
-    }
+tt_content {
+  babiel-core_image_with_text =< lib.contentElement
+  babiel-core_image_with_text {
+    templateName = ImageWithText
+  }
 }

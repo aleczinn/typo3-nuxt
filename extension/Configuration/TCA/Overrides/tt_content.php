@@ -1,46 +1,43 @@
 <?php
+declare(strict_types=1);
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') or die();
 
-// Hero Banner Content Element registrieren
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+$keyImageWithDescription = 'babiel-core_image_with_text';
+
+// Adds the content element to the "Type" dropdown
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'Hero Banner',
-        'value' => 'herobanner',
-        'icon' => 'content-image',
-        'group' => 'special',
-        'description' => 'Großes Hero-Banner mit Bild und Text'
-    ]
+        'label' => 'Image with Text',
+        'value' => $keyImageWithDescription,
+        'icon' => 'content-text',
+        'group' => 'default',
+        'description' => 'Bild mit Text'
+    ],
+    'textmedia',
+    'after',
 );
 
-// Felder für Hero Banner definieren
-$GLOBALS['TCA']['tt_content']['types']['herobanner'] = [
+// Configure the default backend fields for the content element
+$GLOBALS['TCA']['tt_content']['types'][$keyImageWithDescription] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-            --palette--;;general,
-            header;Überschrift (Hero Title),
-            subheader;Unterüberschrift,
-            bodytext;Beschreibung,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media,
-            image;Hintergrundbild,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
-            --palette--;;frames,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-            --palette--;;hidden,
-            --palette--;;access,
-    ',
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+               --palette--;;general,
+               header; Internal title (not displayed),
+               bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+               --palette--;;hidden,
+               --palette--;;access,
+         ',
     'columnsOverrides' => [
         'bodytext' => [
             'config' => [
                 'enableRichtext' => true,
                 'richtextConfiguration' => 'default',
-            ]
+            ],
         ],
-        'image' => [
-            'config' => [
-                'maxitems' => 1,
-            ]
-        ]
-    ]
+    ],
 ];
