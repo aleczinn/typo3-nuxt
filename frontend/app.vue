@@ -44,8 +44,11 @@ const robotsContent = computed(() => {
     }
 
     const parts = []
-    if (robots.noIndex) parts.push('noindex')
-    else parts.push('index')
+    if (robots.noIndex) {
+        parts.push('noindex')
+    } else {
+        parts.push('index')
+    }
 
     if (robots.noFollow) {
         parts.push('nofollow')
