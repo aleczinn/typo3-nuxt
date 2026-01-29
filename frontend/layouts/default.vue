@@ -1,12 +1,12 @@
 <template>
     <div class="flex flex-col h-screen">
-        <LayoutHeader />
+        <LayoutHeader/>
 
         <main class="flex-1">
             <slot/>
         </main>
 
-        <LayoutFooter />
+        <LayoutFooter/>
     </div>
 </template>
 
