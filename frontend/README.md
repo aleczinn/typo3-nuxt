@@ -1,75 +1,50 @@
-# nuxt-typo3 minimal starter
+# Babiel
 
-Look at the [nuxt-typo3 documentation](https://t3headless.macopedia.io/nuxt-typo3/) to learn more.
+## Extension (Backend)
 
-## Setup
+You need to copy all out of /extension into /typo3conf/ext/babiel_core 
+
+## Frontend
+
+### Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
+cd frontend
 
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### Development
 
-Start the development server on `http://localhost:3000`:
+Start teh development server http://localhost:3000
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+
+### Production
 
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
 # pnpm
 pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
 # pnpm
 pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Helpful information
+
+- Typo3-Nuxt [Docs](https://t3headless.macopedia.io/nuxt-typo3/introduction)
+- Typo3-Nuxt [Deployment](https://nuxt.com/docs/getting-started/deployment)
+- Typo3 [Create a custom element type](https://docs.typo3.org/m/typo3/reference-coreapi/12.4/en-us/ApiOverview/ContentElements/AddingYourOwnContentElements.html#ConfigureCE-Fields)
+
+
