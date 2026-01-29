@@ -11,3 +11,15 @@ tt_content {
     templateName = ImageWithText
   }
 }
+
+# Headless JSON Serialisierung
+lib.contentElement.settings.content.image_with_text {
+    fields {
+        header = TEXT
+        header.field = header
+
+        bodytext = TEXT
+        bodytext.field = bodytext
+        bodytext.parseFunc =< lib.parseFunc_RTE
+    }
+}
