@@ -2,24 +2,27 @@
 @import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
 
 lib.contentElement {
-  templateRootPaths.200 = EXT:my_extension/Resources/Private/Templates/ContentElements/
+  templateRootPaths.200 = EXT:babiel-core/Resources/Private/Templates/ContentElements/
 }
 
 tt_content {
   image_with_text =< lib.contentElement
   image_with_text {
-    templateName = ImageWithText
+    templateName = Generic
   }
 }
 
 # Headless JSON Serialisierung
-lib.contentElement.settings.content.image_with_text {
-    fields {
-        header = TEXT
-        header.field = header
+lib.contentElement.settings.content {
+    image_with_text {
+        fields {
+            header = TEXT
+            header.field = header
 
-        bodytext = TEXT
-        bodytext.field = bodytext
-        bodytext.parseFunc =< lib.parseFunc_RTE
+            bodytext = TEXT
+            bodytext.field = bodytext
+            bodytext.parseFunc =< lib.parseFunc_RTE
+        }
     }
 }
+
