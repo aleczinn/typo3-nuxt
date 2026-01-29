@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <header v-if="navigation">
-            <NuxtLink v-for="{ link, title } in navigation" :key="link" :to="link">
-                {{ title }}
-            </NuxtLink>
-        </header>
+    <div class="flex flex-col h-screen">
+        <LayoutHeader />
 
-        <slot/>
+        <main class="flex-1">
+            <slot/>
+        </main>
+
+        <LayoutFooter />
     </div>
 </template>
 
 <script setup lang="ts">
-const { initialData } = useT3Api();
-const navigation = computed(() => initialData.value?.navigation?.[0]?.children ?? []);
+
 </script>
